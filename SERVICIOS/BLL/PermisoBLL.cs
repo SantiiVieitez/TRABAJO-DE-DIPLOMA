@@ -25,13 +25,24 @@ namespace BLL
         }
         public void AgregarPermisoFamilia(Familia familia, Permiso pPermiso)
         {
+            if (familia is null || pPermiso is null)
+                throw new ArgumentNullException("Familia o permiso nulo.");
+
+            if (familia.EsRol && pPermiso.EsRol)
+                throw new InvalidOperationException(
+                    $"No se puede asignar el perfil '{pPermiso.Nombre}' dentro del perfil '{familia.Nombre}'. Asigne Permisos o Familias.");
+
             if (VerificarPermisoEnFamilia(familia, pPermiso.Nombre))
-            {
-                throw new Exception($"El permiso '{pPermiso.Nombre}' ya existe en la familia '{familia.Nombre}'.");
-            }
+                throw new InvalidOperationException(
+                    $"El permiso '{pPermiso.Nombre}' ya existe en la familia/perfil '{familia.Nombre}'.");
+
+            // 🔁 Defensa extra: si estás agregando una subfamilia, evitá ciclos
+            if (pPermiso is Familia subFamilia && VerificarPermisoEnFamilia(subFamilia, familia.Nombre))
+                throw new InvalidOperationException(
+                    $"Se detectó una referencia cíclica entre '{familia.Nombre}' y '{subFamilia.Nombre}'.");
 
             familia.Permisos.Add(pPermiso);
-            dao.GuardarPermisoEnFamilia(familia,pPermiso);
+            dao.GuardarPermisoEnFamilia(familia, pPermiso);
         }
         public void BorrarPermisoFamilia(Familia familia, Permiso pPermiso)
         {

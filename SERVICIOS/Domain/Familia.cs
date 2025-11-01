@@ -10,20 +10,17 @@ namespace SERVICIOS.Domain
 {
     public class Familia : Permiso
     {
-        public Familia(DataRow dr) : base(dr)
-        {
-        }
-        public Familia()
-        {
+        public List<Permiso> Permisos { get; set; } = new List<Permiso>();
 
-        }
-
-        public List<Permiso> Permisos { get; set; }
         public override bool Compuesto => true;
 
-        public override string ToString()
+        public Familia() : base() { }
+
+        public Familia(DataRow dr) : base(dr)
         {
-            return $"{Nombre}";
+            
         }
+
+        public override string ToString() => $"{Nombre}";
     }
 }
