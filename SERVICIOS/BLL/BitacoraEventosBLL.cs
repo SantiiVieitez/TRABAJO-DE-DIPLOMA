@@ -13,7 +13,7 @@ namespace SERVICIOS.BLL
         BitacoraEventosDAL da;
         public BitacoraEventosBLL() 
         {
-            da = new BitacoraEventosDAL();
+            da = BitacoraEventosDAL.Instance;
         }
         public void Registrar(BitacoraEvento e)
         {

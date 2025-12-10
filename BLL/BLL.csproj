@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,15 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RFN-2\ProductoC_BLL.cs" />
-    <Compile Include="RFN-2\CotizacionBLL.cs" />
-    <Compile Include="RFN-1\CarritoBLL.cs" />
-    <Compile Include="RFN-2\FacturaP_BLL.cs" />
-    <Compile Include="RFN-2\OrdenDeCompraBLL.cs" />
-    <Compile Include="RFN-1\FacturaBLL.cs" />
-    <Compile Include="RFN-1\ProductoBLL.cs" />
-    <Compile Include="RFN-1\ClienteBLL.cs" />
-    <Compile Include="RFN-2\ProveedorBLL.cs" />
+    <Compile Include="Compra\ProductoC_BLL.cs" />
+    <Compile Include="Compra\CotizacionBLL.cs" />
+    <Compile Include="Seguridad.cs" />
+    <Compile Include="Venta\CarritoBLL.cs" />
+    <Compile Include="Compra\FacturaP_BLL.cs" />
+    <Compile Include="Compra\OrdenDeCompraBLL.cs" />
+    <Compile Include="Venta\FacturaBLL.cs" />
+    <Compile Include="Venta\ProductoBLL.cs" />
+    <Compile Include="Venta\ClienteBLL.cs" />
+    <Compile Include="Compra\ProveedorBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

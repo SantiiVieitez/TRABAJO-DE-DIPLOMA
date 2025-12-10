@@ -158,5 +158,12 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             button1.Text = new IdiomaBLL().Traducir(Idioma, "button1");
             btnGenerarFactura.Text = new IdiomaBLL().Traducir(Idioma, "btnGenerarFactura");
         }
+
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            facturaBLL.RepararDigitosVerificadores();
+        }
     }
 }

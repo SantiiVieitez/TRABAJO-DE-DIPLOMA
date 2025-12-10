@@ -101,15 +101,19 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.RFN_2
                 ProductoC aux = dataGridView1.SelectedRows[0].DataBoundItem as ProductoC;
                 if (aux.Activo == true)
                 {
-                    throw new Exception("El producto ya se encuentra activo.");
+                    MessageBox.Show("El producto ya esta activo");
                 }
-                productocBLL.ActivarProductoC(aux);
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = productocBLL.RetonarProductoC().OrderByDescending(p => p.Fecha).ThenByDescending(p => p.Hora).ToList();
+                else
+                {
+                    productocBLL.ActivarProductoC(aux);
+                    dataGridView1.DataSource = null;
+                    dataGridView1.DataSource = productocBLL.RetonarProductoC().OrderByDescending(p => p.Fecha).ThenByDescending(p => p.Hora).ToList();
+                }
+                
             }
-            catch (Exception)
-            { 
-                throw;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -137,6 +141,11 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.RFN_2
                 dateTimePicker2.Value = dateTimePicker1.Value;
                 isUpdating = false;
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }   

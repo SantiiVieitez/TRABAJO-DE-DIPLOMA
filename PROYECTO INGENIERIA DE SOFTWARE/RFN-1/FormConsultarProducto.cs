@@ -68,10 +68,11 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
                 {
                     if (ProdSelc.CodigoProducto == ps.CodigoProducto)
                     {
-                        throw new Exception(new IdiomaBLL().Traducir(Idioma, "ElProductoYaExiste")); 
+                        throw new Exception(new IdiomaBLL().Traducir(Idioma, "ElProductoYaExiste"));
+
                     }
+                    carritoBLL.AgregarProductoCarrito(CarritoGeneral.Codigo, ps);
                 }
-                carritoBLL.AgregarProductoCarrito(CarritoGeneral.Codigo, ps);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

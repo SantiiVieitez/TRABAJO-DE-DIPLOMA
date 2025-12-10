@@ -17,20 +17,35 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
     public partial class FormLogin : Form, iObserver
     {
         UserBLL userBLL;
+        IdiomaBLL idiomaBLL;
         BitacoraEventosBLL bitacoraBLL;
+        FacturaBLL facturaBLL;
+
         public FormLogin()
         {
             InitializeComponent();
-            
+
+            facturaBLL = new FacturaBLL();
+            idiomaBLL = new IdiomaBLL();
             userBLL = new UserBLL();
             bitacoraBLL = new BitacoraEventosBLL();
-            textBox1.Text = "santiv";
-            textBox2.Text = "12345";
-            button1_Click(null, null);
+            facturaBLL.VerificarDVH();
+            //textBox1.Text = "santiv";
+            //textBox2.Text = "12345";
+            //button1_Click(null, null);
         }
-        public void ActualizarIdioma(Idioma idioma)
+        public void ActualizarIdioma(Idioma Idioma)
         {
-            throw new NotImplementedException();
+            string idioma;
+            if (Idioma.Nombre == "Español")
+            {
+                idioma = "LoginEspañol";
+            }
+            else
+            {
+                idioma = "LoginEnglish";
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,7 +71,7 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
                 }
                 else
                 {
-                    MessageBox.Show("Contraseña o usuario incorrecto");
+                    MessageBox.Show("Contraseña / Password | Usuario / User Incorrecto / Wrong");
                 }
                 textBox1.Text = null;
                 textBox2.Text = null;

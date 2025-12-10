@@ -1,27 +1,27 @@
-﻿using DAL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
-namespace BLL
+public class BackUpBLL
 {
-    public class BackUpBLL
-    {
-        BackUpDAL da;
-        public BackUpBLL()
-        {
-            da = new BackUpDAL();
-        }
-        public void RealizarBackUp(string ruta)
-        {
-           da.RealizarBackUp(ruta);
-        }
+    BackUpDAL da;
 
-        public void RestaurarBackUp(string ruta)
-        {
-            da.RestaurarBackUp(ruta);
-        }
+    public BackUpBLL()
+    {
+        da = BackUpDAL.Instance;
+    }
+
+    public void RealizarBackUp(string ruta, string nombreBase)
+    {
+        if (string.IsNullOrEmpty(ruta)) throw new Exception("La ruta es obligatoria");
+        if (string.IsNullOrEmpty(nombreBase)) throw new Exception("El nombre de la BD es obligatorio");
+
+        da.RealizarBackUp(ruta, nombreBase);
+    }
+
+    public void RestaurarBackUp(string ruta, string nombreBase)
+    {
+        if (string.IsNullOrEmpty(ruta)) throw new Exception("La ruta es obligatoria");
+        if (string.IsNullOrEmpty(nombreBase)) throw new Exception("El nombre de la BD es obligatorio");
+
+        da.RestaurarBackUp(ruta, nombreBase);
     }
 }

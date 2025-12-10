@@ -13,15 +13,15 @@ namespace BLL
         PermisoDAL dao;
         public PermisoBLL()
         {
-            dao = new PermisoDAL();
+            dao = PermisoDAL.Instance;
         }
         public void AgregarFamilia(Familia pFamilia)
         {
-            dao.AgregarFamilia(pFamilia);
+            dao.Agregar(pFamilia);
         }
         public void BorrarFamilia(Familia pFamilia)
         {
-            dao.BorrarFamilia(pFamilia);
+            dao.Borrar(pFamilia);
         }
         public void AgregarPermisoFamilia(Familia familia, Permiso pPermiso)
         {

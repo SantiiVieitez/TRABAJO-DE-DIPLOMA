@@ -48,11 +48,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -127,6 +130,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(483, 183);
             this.dataGridView3.TabIndex = 6;
+            this.dataGridView3.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView3_CellMouseClick);
             // 
             // textBox1
             // 
@@ -205,9 +209,9 @@
             // 
             this.btnAgregarAlCarrito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(210)))), ((int)(((byte)(88)))));
             this.btnAgregarAlCarrito.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregarAlCarrito.Location = new System.Drawing.Point(889, 291);
+            this.btnAgregarAlCarrito.Location = new System.Drawing.Point(1027, 127);
             this.btnAgregarAlCarrito.Name = "btnAgregarAlCarrito";
-            this.btnAgregarAlCarrito.Size = new System.Drawing.Size(118, 37);
+            this.btnAgregarAlCarrito.Size = new System.Drawing.Size(102, 37);
             this.btnAgregarAlCarrito.TabIndex = 13;
             this.btnAgregarAlCarrito.Text = "Agregar a la lista de Productos";
             this.btnAgregarAlCarrito.UseVisualStyleBackColor = false;
@@ -228,9 +232,9 @@
             // dataGridView4
             // 
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(538, 342);
+            this.dataGridView4.Location = new System.Drawing.Point(1141, 27);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(483, 183);
+            this.dataGridView4.Size = new System.Drawing.Size(465, 231);
             this.dataGridView4.TabIndex = 15;
             // 
             // label6
@@ -239,7 +243,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(535, 326);
+            this.label6.Location = new System.Drawing.Point(1138, 11);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 13);
             this.label6.TabIndex = 16;
@@ -249,7 +253,7 @@
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(210)))), ((int)(((byte)(88)))));
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(538, 531);
+            this.button5.Location = new System.Drawing.Point(1141, 264);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(120, 42);
             this.button5.TabIndex = 17;
@@ -261,7 +265,7 @@
             // 
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(210)))), ((int)(((byte)(88)))));
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(664, 531);
+            this.button6.Location = new System.Drawing.Point(1267, 264);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(120, 42);
             this.button6.TabIndex = 18;
@@ -269,13 +273,35 @@
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // dataGridView5
+            // 
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Location = new System.Drawing.Point(538, 342);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.Size = new System.Drawing.Size(483, 183);
+            this.dataGridView5.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(535, 326);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(208, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Lista de Productos de la Cotizacion";
+            // 
             // FormSolicitudCotizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1038, 581);
+            this.ClientSize = new System.Drawing.Size(1618, 581);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dataGridView5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label6);
@@ -302,6 +328,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,5 +355,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.Label label7;
     }
 }

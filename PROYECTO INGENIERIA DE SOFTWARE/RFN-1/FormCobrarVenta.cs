@@ -121,7 +121,6 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
                     factura.Fecha = DateTime.Now;
                     factura.ListaSeleccionados = carrito.ListaSeleccionados;
                     facturaBLL.AgregarFactura(factura);
-                    facturaBLL.AgregarProductoFactura(factura);
                     MessageBox.Show(new IdiomaBLL().Traducir(Idioma, "VentaRealizada"));
                     facturaBLL.GenerarFactura(factura);
                     foreach (ProductoSeleccionado ps in CarritoBLL.ObtenerCarrito(carrito.ClienteDNI).ListaSeleccionados)

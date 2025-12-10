@@ -40,6 +40,7 @@
       <HintPath>..\packages\QuestPDF.2024.6.0\lib\netstandard2.0\QuestPDF.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,15 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\AuthDB.cs" />
+    <Compile Include="DAL\base\AuthDB.cs" />
     <Compile Include="BLL\BackUpBLL.cs" />
     <Compile Include="BLL\BitacoraEventosBLL.cs" />
     <Compile Include="BLL\IdiomaBLL.cs" />
     <Compile Include="BLL\PermisoBLL.cs" />
     <Compile Include="BLL\SerializerBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
-    <Compile Include="DAL\BackUpDAL.cs" />
-    <Compile Include="DAL\BitacoraEventosDAL.cs" />
+    <Compile Include="DAL\Contrato\iUserDAL.cs" />
+    <Compile Include="DAL\Implementaciones\BackUpDAL.cs" />
+    <Compile Include="DAL\base\BaseAuthDal.cs" />
+    <Compile Include="DAL\Implementaciones\BitacoraEventosDAL.cs" />
     <Compile Include="Domain\BitacoraEvento.cs" />
     <Compile Include="Domain\Familia.cs" />
     <Compile Include="Domain\Idioma.cs" />
@@ -65,12 +68,12 @@
     <Compile Include="Domain\Permiso.cs" />
     <Compile Include="Domain\PermisoSimple.cs" />
     <Compile Include="Domain\Usuarios.cs" />
-    <Compile Include="DAL\EncriptadorReversible.cs" />
-    <Compile Include="DAL\PermisoDAL.cs" />
-    <Compile Include="DAL\UserDAL.cs" />
+    <Compile Include="BLL\EncriptadorReversible.cs" />
+    <Compile Include="DAL\Implementaciones\PermisoDAL.cs" />
+    <Compile Include="DAL\Implementaciones\UserDAL.cs" />
     <Compile Include="BLL\Validadores.cs" />
     <Compile Include="Domain\SessionManager.cs" />
-    <Compile Include="DAL\Encriptador.cs" />
+    <Compile Include="BLL\Encriptador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

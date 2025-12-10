@@ -21,6 +21,7 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
     {
         PermisoBLL permisoBLL;
         BitacoraEventosBLL bitacoraBLL;
+        string idioma;
         public FormMenu()
         {
             InitializeComponent();
@@ -30,12 +31,12 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             bitacoraBLL = new BitacoraEventosBLL();
             if (SessionManager.GetInstance.Usuario != null)
             {
-                ActulizarEstado();
+                ActualizarEstado();
                 SessionManager.GetInstance.Usuario.Perfil = permisoBLL.RetornarPerfilUsuario(SessionManager.GetInstance.Usuario.Rol);
             }
         }
 
-        public void ActulizarEstado()
+        public void ActualizarEstado()
         {
             if(SessionManager.GetInstance.Usuario.Login != null)
             {
@@ -54,7 +55,6 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
                 return false;
             }
 
-            // Crear un HashSet para los permisos encontrados
             var permisosExistentes = new HashSet<string>();
             AgregarPermisosRecursivos(perfil, permisosExistentes);
 
@@ -62,11 +62,11 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             {
                 if (!permisosExistentes.Contains(permiso))
                 {
-                    return false; // Si falta uno, devuelve false
+                    return false; 
                 }
             }
 
-            return true; // Si todos están presentes, devuelve true
+            return true; 
         }
         private void AgregarPermisosRecursivos(Familia familia, HashSet<string> permisosExistentes)
         {
@@ -75,7 +75,7 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
                 permisosExistentes.Add(permiso.Nombre);
                 if (permiso is Familia subFamilia)
                 {
-                    AgregarPermisosRecursivos(subFamilia, permisosExistentes); // Llamada recursiva para permisos compuestos
+                    AgregarPermisosRecursivos(subFamilia, permisosExistentes);
                 }
             }
         }
@@ -93,7 +93,7 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             {
                 if (Form.ActiveForm == this)
                 {
-                    ActulizarEstado();
+                    ActualizarEstado();
                 }
             }
             else
@@ -147,7 +147,8 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             }
             else
             {
-                MessageBox.Show("Faltan uno o mas Permisos en el perfil");
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
             }
             
         }
@@ -164,7 +165,8 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             }
             else
             {
-                MessageBox.Show("Faltan uno o mas Permisos en el perfil");
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
             }
             
         }
@@ -181,7 +183,8 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             }
             else
             {
-                MessageBox.Show("Faltan uno o mas Permisos en el perfil");
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
             }
             
         }
@@ -198,7 +201,8 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             }
             else
             {
-                MessageBox.Show("Faltan uno o mas Permisos en el perfil");
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
             }
             
         }
@@ -216,7 +220,8 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             }
             else
             {
-                MessageBox.Show("Faltan uno o mas Permisos en el perfil");
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
             }
         }
         private void cambiarIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -229,7 +234,6 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
         }
         public void ActualizarIdioma(Idioma Idioma)
         {
-            string idioma;
             if(Idioma.Nombre == "Español")
             {
                 idioma = "FormMenuEspañol";
@@ -260,7 +264,9 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             reportesToolStripMenuItem.Text = new IdiomaBLL().Traducir(idioma, "reportesToolStripMenuItem");
             reporte1ToolStripMenuItem.Text = new IdiomaBLL().Traducir(idioma, "reporte1ToolStripMenuItem");
             reporte2ToolStripMenuItem.Text = new IdiomaBLL().Traducir(idioma, "reporte2ToolStripMenuItem");
-
+            solicitudDeCotizacionToolStripMenuItem.Text = new IdiomaBLL().Traducir(idioma, "solicitudDeCotizacionToolStripMenuItem");
+            ordenesDeCompraToolStripMenuItem.Text = new IdiomaBLL().Traducir(idioma, "ordenesDeCompraToolStripMenuItem");
+            almacenToolStripMenuItem.Text = new IdiomaBLL().Traducir(idioma, "almacenToolStripMenuItem");
         }
 
         private void bitacoraEventosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -276,7 +282,8 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             }
             else
             {
-                MessageBox.Show("Faltan uno o mas Permisos en el perfil");
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
             }
         }
         private void backupToolStripMenuItem_Click(object sender, EventArgs e)
@@ -292,7 +299,8 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             }
             else
             {
-                MessageBox.Show("Faltan uno o mas Permisos en el perfil");
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
             }
             
         }
@@ -355,8 +363,10 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
 
         private void FormMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var result = MessageBox.Show("¿Está seguro de que desea cerrar la sesión actual?",
-                                 "Confirmación de cierre de sesión",
+            string titulo = new IdiomaBLL().Traducir(idioma, "CerrarMenuTitulo");
+            string texto = new IdiomaBLL().Traducir(idioma, "CerrarMenu");
+            var result = MessageBox.Show(texto,
+                                 titulo,
                                  MessageBoxButtons.YesNo,
                                  MessageBoxIcon.Question);
 

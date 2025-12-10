@@ -39,6 +39,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.rbNegocio = new System.Windows.Forms.RadioButton();
+            this.rbAuth = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -132,6 +134,32 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Realizar Restore";
             // 
+            // rbNegocio
+            // 
+            this.rbNegocio.AutoSize = true;
+            this.rbNegocio.BackColor = System.Drawing.Color.Transparent;
+            this.rbNegocio.ForeColor = System.Drawing.Color.White;
+            this.rbNegocio.Location = new System.Drawing.Point(125, 56);
+            this.rbNegocio.Name = "rbNegocio";
+            this.rbNegocio.Size = new System.Drawing.Size(65, 17);
+            this.rbNegocio.TabIndex = 8;
+            this.rbNegocio.TabStop = true;
+            this.rbNegocio.Text = "Negocio";
+            this.rbNegocio.UseVisualStyleBackColor = false;
+            // 
+            // rbAuth
+            // 
+            this.rbAuth.AutoSize = true;
+            this.rbAuth.BackColor = System.Drawing.Color.Transparent;
+            this.rbAuth.ForeColor = System.Drawing.Color.White;
+            this.rbAuth.Location = new System.Drawing.Point(125, 79);
+            this.rbAuth.Name = "rbAuth";
+            this.rbAuth.Size = new System.Drawing.Size(109, 17);
+            this.rbAuth.TabIndex = 9;
+            this.rbAuth.TabStop = true;
+            this.rbAuth.Text = "Arquitectura Base";
+            this.rbAuth.UseVisualStyleBackColor = false;
+            // 
             // FormBackup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,6 +167,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(392, 190);
+            this.Controls.Add(this.rbAuth);
+            this.Controls.Add(this.rbNegocio);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
@@ -166,5 +196,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton rbNegocio;
+        private System.Windows.Forms.RadioButton rbAuth;
     }
 }

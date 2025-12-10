@@ -93,7 +93,6 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.RFN_2
                 cotizacion.Productos = Productos;
                 cotizacion.Fecha = DateTime.Now;
                 cotizacionBLL.Registrar(cotizacion);
-                cotizacionBLL.RegistrarProductosCotizacion(cotizacion);
                 dataGridView3.DataSource = null;
                 dataGridView3.DataSource = cotizacionBLL.RetornarCotizaciones();
                 Productos.Clear();
@@ -214,6 +213,16 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.RFN_2
                 bitacoraBLL.Registrar(bitacoraEvento);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void dataGridView3_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var aux = dataGridView3.SelectedRows[0].DataBoundItem as Cotizacion;
+            if (aux != null) 
+            {
+                dataGridView5.DataSource = null;
+                dataGridView5.DataSource = aux.Productos;
+            }
         }
     }
 }

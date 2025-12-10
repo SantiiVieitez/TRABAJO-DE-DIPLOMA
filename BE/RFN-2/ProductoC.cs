@@ -14,7 +14,6 @@ namespace BE.RFN_2
         public DateTime Fecha { get; set; }
         public string Hora { get; set; }
         public string Nombre { get; set; }
-        public int Existencia { get; set; }
         public string Descripcion { get; set; }
         public bool Activo { get; set; }
         public string Marca { get; set; }
@@ -32,16 +31,15 @@ namespace BE.RFN_2
             Fecha = DateTime.Parse(dr[2].ToString()).Date;
             Hora = DateTime.Parse(dr[3].ToString()).ToString("HH:mm:ss");
             Nombre = dr[4].ToString();
-            Existencia = int.Parse(dr[5].ToString());
-            Descripcion = dr[6].ToString();
-            Activo = bool.Parse(dr[7].ToString());
-            Marca = dr[8].ToString();
-            TipoDeRepuesto = dr[9].ToString();
-            Cantidad = int.Parse(dr[10].ToString());
-            TipoDeVehiculo = dr[11].ToString();
-            Material = dr[12].ToString();
-            Precio = decimal.Parse(dr[13].ToString());
-            BorradoLogico = dr[14].ToString();
+            Descripcion = dr[5].ToString();
+            Activo = bool.Parse(dr[6].ToString());
+            Marca = dr[7].ToString();
+            TipoDeRepuesto = dr[8].ToString();
+            Cantidad = int.Parse(dr[9].ToString());
+            TipoDeVehiculo = dr[10].ToString();
+            Material = dr[11].ToString();
+            Precio = decimal.Parse(dr[12].ToString());
+            BorradoLogico = dr[13].ToString();
         }
     }
 }

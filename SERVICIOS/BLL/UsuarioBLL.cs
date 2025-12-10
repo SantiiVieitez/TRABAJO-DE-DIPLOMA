@@ -16,10 +16,10 @@ namespace SERVICIOS.BLL
 {
     public class UserBLL
     {
-        UserDAL da;
+        IUserDAL da;
         public UserBLL()
         {
-            da = new UserDAL();
+            da = UserDAL.Instance;
         }
         public void IniciarSesion(string Login,string Contraseña)
         {
@@ -42,12 +42,11 @@ namespace SERVICIOS.BLL
                     {
                         usuariobd.Intentos++;
                         da.SumarIntento(usuariobd);
-                        throw new Exception("La contraseña es incorrecta.");
+                        
                     }
                     else
                     {
                         da.Bloquear(usuariobd);
-                        throw new Exception("La contraseña es incorrecta o el usuario fue bloqueado");
                     }
                 }
             }
