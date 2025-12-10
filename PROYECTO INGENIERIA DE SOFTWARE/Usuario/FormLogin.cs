@@ -30,9 +30,9 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             userBLL = new UserBLL();
             bitacoraBLL = new BitacoraEventosBLL();
             facturaBLL.VerificarDVH();
-            //textBox1.Text = "santiv";
-            //textBox2.Text = "12345";
-            //button1_Click(null, null);
+            textBox1.Text = "santiv";
+            textBox2.Text = "12345";
+            button1_Click(null, null);
         }
         public void ActualizarIdioma(Idioma Idioma)
         {

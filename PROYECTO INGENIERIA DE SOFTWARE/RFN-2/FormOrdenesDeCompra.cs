@@ -14,12 +14,14 @@ using System.Windows.Forms;
 
 namespace PROYECTO_INGENIERIA_DE_SOFTWARE.RFN_2
 {
-    public partial class FormOrdenesDeCompra : Form
+    public partial class FormOrdenesDeCompra : Form, iObserver
     {
         ProveedorBLL proveedorBLL;
         CotizacionBLL cotizacionBLL;
         OrdenDeCompraBLL ordenDeCompraBLL;
         BitacoraEventosBLL bitacoraBLL;
+        IdiomaBLL idiomaBLL;
+        string idioma;
         public FormOrdenesDeCompra()
         {
             InitializeComponent();
@@ -27,7 +29,29 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.RFN_2
             cotizacionBLL = new CotizacionBLL();
             ordenDeCompraBLL = new OrdenDeCompraBLL();
             bitacoraBLL = new BitacoraEventosBLL();
+            idiomaBLL = new IdiomaBLL();
+
+            SessionManager.GetInstance.SuscribirObservador(this);
+            ActualizarIdioma(SessionManager.GetInstance.idioma);
             LlenarComboBox();
+        }
+
+        public void ActualizarIdioma(Idioma Idioma)
+        {
+            if (Idioma.Nombre == "Español")
+            {
+                idioma = "OrdenesDeCompraEspañol";
+            }
+            else
+            {
+                idioma = "OrdenesDeCompraEnglish";
+            }
+            label1.Text = new IdiomaBLL().Traducir(idioma, "label1");
+            label2.Text = new IdiomaBLL().Traducir(idioma, "label2");
+            button1.Text = new IdiomaBLL().Traducir(idioma, "button1");
+            button2.Text = new IdiomaBLL().Traducir(idioma, "button2");
+
+
         }
         public void LlenarComboBox()
         {

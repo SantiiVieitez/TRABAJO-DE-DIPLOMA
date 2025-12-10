@@ -14,12 +14,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BE;
+using BLL;
 
 namespace PROYECTO_INGENIERIA_DE_SOFTWARE.Admin
 {
-    public partial class FormBitacoraEvento : Form
+    public partial class FormBitacoraEvento : Form,iObserver
     {
         UserBLL userBLL;
+        string Idioma;
+        IdiomaBLL idiomaBLL;
         BitacoraEventosBLL bitacoraEventosBLL;
         List<BitacoraEvento> resultados;
         private bool isUpdating = false;
@@ -37,6 +40,7 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.Admin
             }
             Mostrar();
         }
+
         public void Mostrar()
         {
             var bitacoraEventos = bitacoraEventosBLL.RetornarBitacora();
@@ -287,6 +291,11 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.Admin
                 dateTimePicker2.Value = dateTimePicker1.Value;
                 isUpdating = false;
             }
+        }
+
+        public void ActualizarIdioma(Idioma idioma)
+        {
+            
         }
     }
 }

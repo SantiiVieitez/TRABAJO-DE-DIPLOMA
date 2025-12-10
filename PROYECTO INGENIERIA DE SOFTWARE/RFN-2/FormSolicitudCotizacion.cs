@@ -1,12 +1,14 @@
 ﻿using BE;
 using BLL;
 using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
 using SERVICIOS.BLL;
 using SERVICIOS.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,23 +17,28 @@ using System.Windows.Forms;
 
 namespace PROYECTO_INGENIERIA_DE_SOFTWARE.RFN_2
 {
-    public partial class FormSolicitudCotizacion : Form
+    public partial class FormSolicitudCotizacion : Form, iObserver
     {
         ProveedorBLL proveedorBLL;
         CotizacionBLL cotizacionBLL;
         ProductoBLL productoBLL;
         BitacoraEventosBLL bitacoraBLL;
         List<ProductoSeleccionado> Productos;
+        string idioma;
+        IdiomaBLL idiomaBLL;
 
         public FormSolicitudCotizacion()
         {
             InitializeComponent();
+            idiomaBLL = new IdiomaBLL();
             productoBLL = new ProductoBLL();
             proveedorBLL = new ProveedorBLL();
             cotizacionBLL = new CotizacionBLL();
             List<Producto> ListaProductos = new List<Producto>();
             bitacoraBLL = new BitacoraEventosBLL();
             ListaProductos = productoBLL.ListaProductos();
+            ActualizarIdioma(SessionManager.GetInstance.idioma);
+            SessionManager.GetInstance.SuscribirObservador(this);
             Productos = new List<ProductoSeleccionado>();
             foreach (Producto p in ListaProductos)
             {
@@ -223,6 +230,33 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.RFN_2
                 dataGridView5.DataSource = null;
                 dataGridView5.DataSource = aux.Productos;
             }
+        }
+
+        public void ActualizarIdioma(Idioma Idioma)
+        {
+            if (Idioma.Nombre == "Español")
+            {
+                idioma = "SolicitudDeCotizacionEspañol";
+            }
+            else
+            {
+                idioma = "SolicitudDeCotizacionEnglish";
+            }
+
+            label1.Text = idiomaBLL.Traducir(idioma, "label1");
+            label2.Text = idiomaBLL.Traducir(idioma, "label2");
+            label3.Text = idiomaBLL.Traducir(idioma, "label3");
+            label4.Text = idiomaBLL.Traducir(idioma, "label4");
+            label5.Text = idiomaBLL.Traducir(idioma, "label5");
+            label6.Text = idiomaBLL.Traducir(idioma, "label6");
+            label7.Text = idiomaBLL.Traducir(idioma, "label7");
+            button1.Text = idiomaBLL.Traducir(idioma, "button1");
+            button2.Text = idiomaBLL.Traducir(idioma, "button2");
+            button3.Text = idiomaBLL.Traducir(idioma, "button3");
+            button4.Text = idiomaBLL.Traducir(idioma, "button4");
+            button5.Text = idiomaBLL.Traducir(idioma, "button5");
+            button6.Text = idiomaBLL.Traducir(idioma, "button6");
+            btnAgregarAlCarrito.Text = idiomaBLL.Traducir(idioma, "btnAgregarAlCarrito");
         }
     }
 }
