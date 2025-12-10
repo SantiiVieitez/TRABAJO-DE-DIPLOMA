@@ -14,18 +14,39 @@ using System.Windows.Forms;
 
 namespace PROYECTO_INGENIERIA_DE_SOFTWARE.RFN_2
 {
-    public partial class FormAlmacen : Form
+    public partial class FormAlmacen : Form, iObserver
     {
         FacturaP_BLL facturapBLL;
         ProductoBLL productoBLL;
         BitacoraEventosBLL bitacoraBLL;
+        IdiomaBLL idiomaBLL;
+        string idioma;
         public FormAlmacen()
         {
             InitializeComponent();
             facturapBLL = new FacturaP_BLL();
             productoBLL = new ProductoBLL();
             bitacoraBLL = new BitacoraEventosBLL();
+            idiomaBLL = new IdiomaBLL();
+            SessionManager.GetInstance.SuscribirObservador(this);
+            ActualizarIdioma(SessionManager.GetInstance.idioma);
             Mostrar();
+        }
+
+        public void ActualizarIdioma(Idioma Idioma)
+        {
+            if (Idioma.Nombre == "Español")
+            {
+                idioma = "AlmacenEspañol";
+            }
+            else
+            {
+                idioma = "AlmacenEnglish";
+            }
+            label1.Text = idiomaBLL.Traducir(idioma,"label1");
+            label2.Text = idiomaBLL.Traducir(idioma, "label2");
+            button1.Text = idiomaBLL.Traducir(idioma, "button1");
+
         }
         public void Mostrar()
         {

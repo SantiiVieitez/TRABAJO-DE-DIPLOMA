@@ -21,7 +21,7 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.Admin
     public partial class FormBitacoraEvento : Form,iObserver
     {
         UserBLL userBLL;
-        string Idioma;
+        string idioma;
         IdiomaBLL idiomaBLL;
         BitacoraEventosBLL bitacoraEventosBLL;
         List<BitacoraEvento> resultados;
@@ -31,6 +31,9 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.Admin
             InitializeComponent();
             bitacoraEventosBLL = new BitacoraEventosBLL();
             userBLL = new UserBLL();
+            idiomaBLL = new IdiomaBLL();
+            SessionManager.GetInstance.SuscribirObservador(this);
+            ActualizarIdioma(SessionManager.GetInstance.idioma);
             List<Usuarios> ListaUsuarios = new List<Usuarios>();
             List<BitacoraEvento> resultados = new List<BitacoraEvento>();
             ListaUsuarios = userBLL.RetornarListaUsuarios();
@@ -293,9 +296,31 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.Admin
             }
         }
 
-        public void ActualizarIdioma(Idioma idioma)
+        public void ActualizarIdioma(Idioma Idioma)
         {
-            
+            if (Idioma.Nombre == "Español")
+            {
+                idioma = "BitacoraEventosEspañol";
+            }
+            else
+            {
+                idioma = "BitacoraEventosEnglish";
+            }
+
+            label1.Text = idiomaBLL.Traducir(idioma, "label1");
+            label2.Text = idiomaBLL.Traducir(idioma, "label2");
+            label3.Text = idiomaBLL.Traducir(idioma, "label3");
+            label4.Text = idiomaBLL.Traducir(idioma, "label4");
+            label5.Text = idiomaBLL.Traducir(idioma, "label5");
+            label6.Text = idiomaBLL.Traducir(idioma, "label6");
+            label7.Text = idiomaBLL.Traducir(idioma, "label7");
+            label8.Text = idiomaBLL.Traducir(idioma, "label8");
+            label9.Text = idiomaBLL.Traducir(idioma, "label9");
+            button1.Text = idiomaBLL.Traducir(idioma, "button1");
+            button2.Text = idiomaBLL.Traducir(idioma, "button2");
+            button3.Text = idiomaBLL.Traducir(idioma, "button3");
+            button4.Text = idiomaBLL.Traducir(idioma, "button4");
+
         }
     }
 }

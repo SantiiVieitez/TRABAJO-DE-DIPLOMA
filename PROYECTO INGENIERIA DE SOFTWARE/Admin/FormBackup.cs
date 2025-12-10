@@ -1,4 +1,5 @@
 ﻿using BLL;
+using SERVICIOS.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,18 +12,44 @@ using System.Windows.Forms;
 
 namespace PROYECTO_INGENIERIA_DE_SOFTWARE.Admin
 {
-    public partial class FormBackup : Form
+    public partial class FormBackup : Form, iObserver
     {
         BackUpBLL BackupBLL;
+        IdiomaBLL idiomaBLL;
 
         private const string DB_NAME_NEGOCIO = "Ingenieria de Software";
         private const string DB_NAME_AUTH = "AuthDB";
+
+        string idioma;
         public FormBackup()
         {
             InitializeComponent();
             BackupBLL = new BackUpBLL();
+            idiomaBLL = new IdiomaBLL();
+            SessionManager.GetInstance.SuscribirObservador(this);
+            ActualizarIdioma(SessionManager.GetInstance.idioma);
 
             rbNegocio.Checked = true;
+        }
+
+        public void ActualizarIdioma(Idioma Idioma)
+        {
+            if (Idioma.Nombre == "Español")
+            {
+                idioma = "BackupEspañol";
+            }
+            else
+            {
+                idioma = "BackupEnglish";
+            }
+            label1.Text = idiomaBLL.Traducir(idioma, "label1");
+            label2.Text = idiomaBLL.Traducir(idioma, "label2");
+
+            button2.Text = idiomaBLL.Traducir(idioma, "button2");
+            button4.Text = idiomaBLL.Traducir(idioma, "button4");
+
+            rbNegocio.Text = idiomaBLL.Traducir(idioma, "rbNegocio");
+            rbAuth.Text = idiomaBLL.Traducir(idioma, "rbAuth");
         }
 
         private string ObtenerBaseSeleccionada()
@@ -49,21 +76,22 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.Admin
                 textBox1.Text = FolderBrowser.SelectedPath;
             }
         }
-        private void button2_Click(object sender, EventArgs e) // REALIZAR BACKUP
+        private void button2_Click(object sender, EventArgs e)
         {
             try
             {
                 if (string.IsNullOrEmpty(textBox1.Text))
                 {
-                    throw new Exception("Ingrese una ruta por favor");
+                    string mensajeruta = idiomaBLL.Traducir(idioma, "ExcepcionRuta");
+                    throw new Exception(mensajeruta);
                 }
 
                 string baseDatos = ObtenerBaseSeleccionada();
 
-                // Pasamos la ruta y el nombre de la base de datos a la BLL
                 BackupBLL.RealizarBackUp(textBox1.Text, baseDatos);
-
-                MessageBox.Show($"Backup de la base '{baseDatos}' realizado con éxito.");
+                string mensaje = idiomaBLL.Traducir(idioma, "MensajeBackup");
+                string mensaje2 = idiomaBLL.Traducir(idioma, "MensajeBackup2");
+                MessageBox.Show($"{mensaje} '{baseDatos}' {mensaje2}.");
             }
             catch (Exception ex)
             {
@@ -80,7 +108,7 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.Admin
             }
         }
 
-        private void button4_Click(object sender, EventArgs e) // REALIZAR RESTORE
+        private void button4_Click(object sender, EventArgs e) 
         {
             try
             {
@@ -90,8 +118,6 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.Admin
                 }
 
                 string baseDatos = ObtenerBaseSeleccionada();
-
-                // Confirmación de seguridad (Opcional pero recomendado)
                 DialogResult result = MessageBox.Show(
                     $"¿Está seguro que desea restaurar la base de datos '{baseDatos}'? Esto sobrescribirá los datos actuales.",
                     "Advertencia",

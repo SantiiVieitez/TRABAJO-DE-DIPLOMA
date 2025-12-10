@@ -267,6 +267,8 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             solicitudDeCotizacionToolStripMenuItem.Text = new IdiomaBLL().Traducir(idioma, "solicitudDeCotizacionToolStripMenuItem");
             ordenesDeCompraToolStripMenuItem.Text = new IdiomaBLL().Traducir(idioma, "ordenesDeCompraToolStripMenuItem");
             almacenToolStripMenuItem.Text = new IdiomaBLL().Traducir(idioma, "almacenToolStripMenuItem");
+            productosCToolStripMenuItem.Text = new IdiomaBLL().Traducir(idioma, "productosCToolStripMenuItem");
+            bitacoraEventosToolStripMenuItem.Text = new IdiomaBLL().Traducir(idioma, "bitacoraEventosToolStripMenuItem");
         }
 
         private void bitacoraEventosToolStripMenuItem_Click(object sender, EventArgs e)
