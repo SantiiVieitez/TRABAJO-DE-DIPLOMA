@@ -1,0 +1,11 @@
+{
+    "label1": "Realizar Backup",
+    "label2": "Realizar Restore",
+    "button2": "Realizar",
+    "button4": "Realizar",
+    "rbNegocio": "Negocio",
+    "rbAuth": "Arquitectura Base",
+    "ExcepcionRuta": "Ingrese una ruta por favor",
+    "MensajeBackup": "Backup de la Base",
+    "MensajeBackup2":"Realizado con exito"
+}

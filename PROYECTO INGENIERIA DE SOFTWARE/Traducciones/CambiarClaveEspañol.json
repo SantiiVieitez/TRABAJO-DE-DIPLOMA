@@ -1,0 +1,10 @@
+{
+    "titulo": "Cambiar Clave",
+    "label1": "Cambiar Clave",
+    "label2": "Contraseña Actual",
+    "label3": "Contraseña Nueva",
+    "label4": "Confirmar Contraseña",
+    "button1": "Aceptar",
+    "ContraseñasIncorrectas": "Las contraseñas no coinciden",
+    "ContraseñaActualIncorrecta": "La contraseña actual es incorrecta"
+}

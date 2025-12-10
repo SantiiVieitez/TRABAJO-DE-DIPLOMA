@@ -1,0 +1,13 @@
+{
+    "titulo": "Cargar Carrito",
+    "label1": "DNI",
+    "label4": "Carrito",
+    "btnAsignar": "Asignar",
+    "btnAgregarProductoCarrito" : "Agregar Producto",
+    "btnEliminar" : "Eliminar Producto",
+    "btnModificar" : "Modificar Producto",
+    "DNIAsignadoCorrectamente" : "DNI asignado correctamente",
+    "DNIAsignadoTitulo" : "Asignar Carrito",
+    "DNIExistente" : "Ya existe un carrito con ese DNI"
+
+}

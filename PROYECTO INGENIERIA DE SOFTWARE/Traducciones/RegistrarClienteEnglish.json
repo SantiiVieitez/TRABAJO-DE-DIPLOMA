@@ -1,0 +1,19 @@
+{
+    "titulo": "Client",
+    "label1": "First Name",
+    "label2": "Last Name",
+    "label3": "ID",
+    "label4": "Email",
+    "label5": "Address",
+    "label6": "Phone",
+    "label10": "Operation: ",
+    "button1": "Add",
+    "button2": "Delete",
+    "button3": "Edit",
+    "button4": "Save",
+    "OperacionModificar": "Operation: Edit",
+    "OperacionAgregar": "Operation: Add",
+    "OperacionEliminar": "Do you want to delete the client {0} {1}?",
+    "OperacionEliminarTitulo": "Delete Client",
+    "SeleccionarCliente": "Select a client first!"
+  }

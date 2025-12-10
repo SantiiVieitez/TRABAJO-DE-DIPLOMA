@@ -1,0 +1,14 @@
+{
+    "label1" : "Permisos",
+    "label2" : "Familias",
+    "label3" : "Permisos",
+    "label4" : "Perfiles",
+    "radiobuttonFamilia": "Agregar/Borrar a Familia",
+    "radiobuttonPerfil": "Agregar/Borrar Perfil",
+    "btnAgregarFamilia": "Agregar",
+    "btnEliminarFamilia": "Eliminar",
+    "btnAgregarPerfil": "Agregar",
+    "btnEliminarPerfil": "Eliminar",
+    "ExcepcionNombreFamilia": "El nombre de la familia ya existe",
+    "ExcepcionNombrePerfil": "El nombre del perfil ya existe"
+}

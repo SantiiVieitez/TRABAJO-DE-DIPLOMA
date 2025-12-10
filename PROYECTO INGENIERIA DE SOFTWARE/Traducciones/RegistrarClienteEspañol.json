@@ -1,0 +1,19 @@
+{
+    "titulo": "Cliente",
+    "label1": "Nombre",
+    "label2": "Apellido",
+    "label3": "DNI",
+    "label4": "Correo",
+    "label5": "Domicilio",
+    "label6": "Telefono",
+    "label10": "Operacion: ",
+    "button1": "Agregar",
+    "button2": "Eliminar",
+    "button3": "Modificar",
+    "button4": "Guardar",
+    "OperacionModificar": "Operacion: Modificar",
+    "OperacionAgregar": "Operacion: Agregar",
+    "OperacionEliminar": "Desea eliminar el cliente {0} {1}?",
+    "OperacionEliminarTitulo": "Eliminar Cliente",
+    "SeleccionarCliente": "Seleccione un cliente primero!"
+}

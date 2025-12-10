@@ -1,0 +1,15 @@
+{
+    "label1": "Bitacora de Eventos",
+    "label2": "Login",
+    "label3": "Modulo",
+    "label4": "Fecha INI",
+    "label5": "Fecha FIN",
+    "label6": "Evento",
+    "label7": "Criticidad",
+    "label8": "Nombre",
+    "label9": "Apellido",
+    "button1": "Limpiar",
+    "button2": "Aplicar",
+    "button3": "Imprimir",
+    "button4": "Salir"
+}

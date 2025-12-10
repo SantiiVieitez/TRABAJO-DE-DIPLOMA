@@ -1,0 +1,16 @@
+{
+  "label1": "Proveedores",
+  "label2": "Productos",
+  "label3": "Buscar",
+  "label4": "Cantidad",
+  "label5": "Cotizaciones",
+  "label6": "Lista Productos",
+  "label7": "Lista Productos Cotizacion",
+  "button1": "Registrar Proveedor",
+  "button2": "Generar Solicitud",
+  "button3": "Borrar Solicitud",
+  "button4": "Modificar Solicitud",
+  "button5": "Borrar Producto",
+  "button6": "Modificar Cantidad",
+  "btnAgregarAlCarrito": "Añadir a la lista de Productos"
+}

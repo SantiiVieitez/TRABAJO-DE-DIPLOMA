@@ -1,0 +1,15 @@
+{
+  "label1": "Event Log",
+  "label2": "Login",
+  "label3": "Module",
+  "label4": "Start Date",
+  "label5": "End Date",
+  "label6": "Event",
+  "label7": "Severity",
+  "label8": "First Name",
+  "label9": "Last Name",
+  "button1": "Clear",
+  "button2": "Apply",
+  "button3": "Print",
+  "button4": "Exit"
+}

@@ -1,0 +1,10 @@
+{
+        "titulo": "Change Password",
+        "label1": "Change Password",
+        "label2": "Current Password",
+        "label3": "New Password",
+        "label4": "Confirm Password",
+        "button1": "Accept",
+        "ContraseñasIncorrectas": "Passwords do not match",
+        "ContraseñaActualIncorrecta": "The current password is incorrect"
+}

@@ -1,0 +1,7 @@
+{
+    "titulo": "Consult Product",
+    "label1": "Search",
+    "label2": "Quantity",
+    "btnAgregarAlCarrito": "Add to Cart",
+    "ElProductoYaExiste": "The product already exists in the cart"
+}

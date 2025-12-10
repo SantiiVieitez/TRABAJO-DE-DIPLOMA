@@ -1,0 +1,14 @@
+{
+    "titulo": "Generar Factura",
+    "label1": "Ingrese dni del cliente",
+    "label4": "Generar Factura",
+    "btnAgregarProducto": "Agregar Producto",
+    "button2": "Registrar Cliente",
+    "button1": "Modificar Cantidad",
+    "btnGenerarFactura": "Cobrar",
+    "ModificarCantidad": "Ingrese la nueva cantidad",
+    "ModificarCantidadTitulo": "Modificar Cantidad",
+    "CantidadInsuficiente": "Cantidad insuficiente",
+    "CarritoNoEncontrado": "Carrito no encontrado",
+    "ClienteNoRegistrado": "Cliente no registrado"
+}

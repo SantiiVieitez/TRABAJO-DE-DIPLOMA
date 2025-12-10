@@ -1,0 +1,15 @@
+{
+    "titulo": "Charge Sale",
+    "label4": "Cart",
+    "label3": "Total = $ ",
+    "radioButton1": "Card",
+    "radioButton2": "Cash",
+    "label1": "Card Number",
+    "label2": "Security Code",
+    "label5": "Expiration Date",
+    "label6": "Card Type",
+    "label7": "Cardholder Name",
+    "label8": "Cardholder DNI",
+    "button4": "Charge",
+    "VentaRealizada" : "Sale made"
+}

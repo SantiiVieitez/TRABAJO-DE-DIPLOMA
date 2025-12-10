@@ -1,0 +1,22 @@
+{
+    "titulo" : "Products",
+    "label1" : "Name",
+    "label2" : "Brand",
+    "label3" : "Replacement type",
+    "label4" : "Quantity",
+    "label5" : "Vehicle Type",
+    "label6" : "Material",
+    "label7" : "Price",
+    "label8" : "Description",
+    "label9" : "Id",
+    "label10": "Operation: ",
+    "button1": "Add",
+    "button2": "Delete",
+    "button3": "Modify",
+    "button4": "Save",
+    "OperacionModificar": "Operation: Modify",
+    "OperacionAgregar": "Operation: Add",
+    "OperacionEliminar": "Do you want to delete the product {0}?",
+    "OperacionEliminarTitulo": "Delete Product",
+    "ExceptionNoSeleccinado" : "You must select a product"
+}

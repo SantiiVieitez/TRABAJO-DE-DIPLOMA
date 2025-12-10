@@ -1,0 +1,16 @@
+{
+  "label1": "Suppliers",
+  "label2": "Products",
+  "label3": "Search",
+  "label4": "Quantity",
+  "label5": "Quotations",
+  "label6": "Product List",
+  "label7": "Quotation Product List",
+  "button1": "Register Supplier",
+  "button2": "Generate Request",
+  "button3": "Delete Request",
+  "button4": "Edit Request",
+  "button5": "Delete Product",
+  "button6": "Update Quantity",
+  "btnAgregarAlCarrito": "Add to Product List"
+}

@@ -1,0 +1,15 @@
+{
+    "titulo" : "Cobrar Venta",
+    "label4": "Carrito",
+    "label3": "Total = $ ",
+    "radioButton1": "Tarjeta",
+    "radioButton2": "Efectivo",
+    "label1": "Nro Tarjeta",
+    "label2": "Codigo de Seguridad",
+    "label5": "Fecha de Vencimiento",
+    "label6": "Tipo de Tarjeta",
+    "label7": "Nombre del Titular",
+    "label8": "DNI del Titular",
+    "button4": "Cobrar",
+    "VentaRealizada" : "Venta Realizada"
+}

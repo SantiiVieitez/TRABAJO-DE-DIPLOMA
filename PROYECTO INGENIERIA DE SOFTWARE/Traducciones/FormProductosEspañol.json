@@ -1,0 +1,22 @@
+{
+    "titulo" : "Productos",
+    "label1" : "Nombre",
+    "label2" : "Marca",
+    "label3" : "Tipo de Respuesto",
+    "label4" : "Cantidad",
+    "label5" : "Tipo de Vehiculo",
+    "label6" : "Material",
+    "label7" : "Precio",
+    "label8" : "Descripcion",
+    "label9" : "Id",
+    "label10": "Operacion: ",
+    "button1": "Agregar",
+    "button2": "Borrar",
+    "button3": "Modificar",
+    "button4": "Guardar",
+    "OperacionModificar": "Operación: Modificar",
+    "OperacionAgregar": "Operación: Agregar",
+    "OperacionEliminar": "¿Desea eliminar el producto {0}?",
+    "OperacionEliminarTitulo": "Eliminar Producto",
+    "ExceptionNoSeleccinado": "Debe seleccionar un producto"
+}

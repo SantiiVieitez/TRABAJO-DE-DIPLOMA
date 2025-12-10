@@ -1,0 +1,14 @@
+{
+    "titulo": "Generate Invoice",
+    "label1": "Enter customer's dni",
+    "label4": "Generate Invoice",
+    "btnAgregarProducto": "Add Product",
+    "button2": "Register Customer",
+    "button1": "Modify Quantity",
+    "btnGenerarFactura": "Charge",
+    "ModificarCantidad": "Enter the new quantity", 
+    "ModificarCantidadTitulo" : "Modify Quantity",
+    "CantidadInsuficiente" : "Insufficient quantity",
+    "CarritoNoEncontrado" : "Cart not found",
+    "ClienteNoRegistrado" : "Customer not registered"
+}

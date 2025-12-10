@@ -1,0 +1,11 @@
+{
+    "label1": "Perfom Backup",
+    "label2": "Perfom Restore",
+    "button2": "Perfom",
+    "button4": "Perfom",
+    "rbNegocio": "Business",
+    "rbAuth": "Core Architecture",
+    "ExcepcionRuta": "Please enter a path",
+    "MensajeBackup": "Database Backup",
+    "MensajeBackup2": "Completed successfully"
+}

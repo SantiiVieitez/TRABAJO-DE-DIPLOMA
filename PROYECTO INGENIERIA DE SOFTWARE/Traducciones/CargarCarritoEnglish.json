@@ -1,0 +1,13 @@
+{
+    "titulo": "Load Cart",
+    "label1": "DNI",
+    "label4": "Cart",
+    "btnAsignar": "Assign",
+    "btnAgregarProductoCarrito": "Add Product",
+    "btnEliminar": "Delete Product",
+    "btnModificar": "Modify Product",
+    "DNIAsignadoCorrectamente" : "DNI assigned correctly",
+    "DNIAsignadoTitulo" : "Assign Cart",
+    "DNIExistente" : "There is already a cart with that DNI",
+    "IngresarCantidadDeseada" : "Enter the desired quantity"
+}
