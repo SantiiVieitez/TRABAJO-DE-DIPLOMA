@@ -13,7 +13,7 @@ namespace BLL
     {
         public string Traducir(string archivo, string clave)
         {
-            string PathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Traducciones", archivo + ".json");
+            string PathFile = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Traducciones", archivo + ".json"));
             string json = File.ReadAllText(PathFile);
             var traducciones = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
 

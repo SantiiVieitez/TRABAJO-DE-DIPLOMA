@@ -2,6 +2,7 @@
 using BE.RFN_2;
 using BLL;
 using BLL.RFN_2;
+using SERVICIOS.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,20 +15,46 @@ using System.Windows.Forms;
 
 namespace PROYECTO_INGENIERIA_DE_SOFTWARE.RFN_2
 {
-    public partial class FormBitacoraCambio : Form
+    public partial class FormBitacoraCambio : Form, iObserver
     {
         ProductoC_BLL productocBLL;
         ProductoBLL productoBLL;
         private bool isUpdating = false;
+        string idioma;
+        IdiomaBLL idiomaBLL;
 
         public FormBitacoraCambio()
         {
             InitializeComponent();
+            idiomaBLL = new IdiomaBLL();
+            SessionManager.GetInstance.SuscribirObservador(this);
+            ActualizarIdioma(SessionManager.GetInstance.idioma);
             productocBLL = new ProductoC_BLL();
             productoBLL = new ProductoBLL();
             CargarComboBox();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = productocBLL.RetonarProductoC().OrderByDescending(p => p.Fecha).ThenByDescending(p => p.Hora).ToList();
+        }
+
+        public void ActualizarIdioma(Idioma Idioma)
+        {
+            if (Idioma.Nombre == "Español")
+            {
+                idioma = "BitacoraCambiosEspañol";
+            }
+            else
+            {
+                idioma = "BitacoraCambiosEnglish";
+            }
+            label8.Text = idiomaBLL.Traducir(idioma, "label8");
+            label1.Text = idiomaBLL.Traducir(idioma, "label1");
+            label4.Text = idiomaBLL.Traducir(idioma, "label4");
+            label5.Text = idiomaBLL.Traducir(idioma, "label5");
+
+            button1.Text = idiomaBLL.Traducir(idioma, "button1");
+            button2.Text = idiomaBLL.Traducir(idioma, "button2");
+            button3.Text = idiomaBLL.Traducir(idioma, "button3");
+            button4.Text = idiomaBLL.Traducir(idioma, "button4");
         }
         public void CargarComboBox()
         {
