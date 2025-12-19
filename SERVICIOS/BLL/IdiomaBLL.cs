@@ -13,18 +13,22 @@ namespace BLL
     {
         public string Traducir(string archivo, string clave)
         {
-            string PathFile = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Traducciones", archivo + ".json"));
-            string json = File.ReadAllText(PathFile);
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+
+            string pathExe = Path.Combine(basePath, "Traducciones", archivo + ".json");
+            string pathDev = Path.GetFullPath(Path.Combine(basePath, @"..\..\Traducciones", archivo + ".json"));
+
+            string pathFile = File.Exists(pathExe) ? pathExe : pathDev;
+
+            if (!File.Exists(pathFile))
+                throw new FileNotFoundException($"No se encontró el archivo de traducción", pathFile);
+
+            string json = File.ReadAllText(pathFile);
             var traducciones = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
 
-            if (traducciones.TryGetValue(clave, out string traduccion))
-            {
-                return traduccion;
-            }
-            else
-            {
-                return null;
-            }
+            return traducciones != null && traducciones.TryGetValue(clave, out string traduccion)
+                ? traduccion
+                : null;
         }
     }
 }

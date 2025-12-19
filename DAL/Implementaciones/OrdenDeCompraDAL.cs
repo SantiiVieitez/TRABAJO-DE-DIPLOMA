@@ -72,6 +72,7 @@ namespace DAL
             GuardarProductos(p);
         }
 
+        //no se usa.
         public override void Borrar(OrdenDeCompra p)
         {
             BorrarProductos(p.ID);

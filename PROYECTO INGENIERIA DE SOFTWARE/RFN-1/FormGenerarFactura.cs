@@ -33,6 +33,14 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
         {
             InitializeComponent();
             SessionManager.GetInstance.SuscribirObservador(this);
+            if (SessionManager.GetInstance.Usuario.Rol == "Administrador")
+            {
+                button3.Visible = true;
+            }
+            else
+            {
+                button3.Visible = false;
+            }
             carritoBLL = new CarritoBLL();
             facturaBLL = new FacturaBLL();
             clienteBLL = new ClienteBLL();

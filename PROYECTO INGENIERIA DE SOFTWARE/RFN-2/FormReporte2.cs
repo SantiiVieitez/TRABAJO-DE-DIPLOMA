@@ -26,7 +26,19 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.RFN_2
         private void button1_Click(object sender, EventArgs e)
         {
             FacturaP aux = dataGridView1.SelectedRows[0].DataBoundItem as FacturaP;
-            facturaP_BLL.GenerarFacturaP(aux);
+
+            SaveFileDialog guardarDialogo = new SaveFileDialog();
+            string nombreSugerido = $"{aux.ID}_{DateTime.Now.ToString("yyyyMMdd")}.pdf";
+            guardarDialogo.FileName = nombreSugerido;
+            guardarDialogo.Filter = "Archivos PDF (*.pdf)|*.pdf";
+            guardarDialogo.Title = "Guardar Factura";
+
+            if (guardarDialogo.ShowDialog() == DialogResult.OK)
+            {
+                facturaP_BLL.GenerarFacturaP(aux, guardarDialogo.FileName);
+
+                MessageBox.Show("Factura generada con éxito.");
+            }
         }
     }
 }

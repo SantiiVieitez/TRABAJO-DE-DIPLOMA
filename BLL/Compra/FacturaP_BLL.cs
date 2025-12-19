@@ -1,11 +1,12 @@
 ﻿using BE;
-using DAL.RFN_2;
 using DAL.Contrato;
+using DAL.RFN_2;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,8 +63,13 @@ namespace BLL
             }
             return total;
         }
-        public void GenerarFacturaP(FacturaP pFactura)
+        public void GenerarFacturaP(FacturaP pFactura, string directorio)
         {
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string pathImgExe = Path.Combine(basePath, "Imagenes", "Logo250.jpg");
+            string pathImgDev = Path.GetFullPath(Path.Combine(basePath, @"..\..\Imagenes", "Logo250.jpg"));
+            string rutaLogo = File.Exists(pathImgExe) ? pathImgExe : pathImgDev;
+
             QuestPDF.Settings.License = LicenseType.Community;
             Document.Create(container =>
             {
@@ -75,7 +81,7 @@ namespace BLL
                     page.Header()
                         .Row(row =>
                         {
-                            row.ConstantItem(100).Image("Imagenes\\Logo250.jpg");
+                            row.ConstantItem(100).Image(rutaLogo);
                             row.RelativeItem().AlignRight().Text(text =>
                             {
                                 text.Span("RepuestoMaster").FontSize(20).SemiBold().FontColor(Colors.Blue.Medium);
@@ -131,7 +137,7 @@ namespace BLL
                             });
                         });
                 });
-            }).GeneratePdf($"Facturas\\{pFactura.ID}_{DateTime.Now.ToString("yyyyMMdd")}.pdf");
+            }).GeneratePdf(directorio);
 
 
             IContainer CellStyle(IContainer container)

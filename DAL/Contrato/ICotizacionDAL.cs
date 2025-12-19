@@ -21,6 +21,6 @@ namespace DAL.Contrato
 
         // métodos específicos
         void GuardarProductosCotizacion(Cotizacion cot);
-        List<Cotizacion> RetornarCotizacionesProveedor(string cuit);
+        List<Cotizacion> RetornarCotizaciones(string cuit);
     }
 }

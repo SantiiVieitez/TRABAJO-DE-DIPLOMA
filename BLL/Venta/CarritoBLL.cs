@@ -30,7 +30,6 @@ namespace BLL
             }
             return id;
         }
-
         public void Agregar(Carrito pCarrito)
         {
             pCarrito.Codigo = GenerarCodigoCarrito();

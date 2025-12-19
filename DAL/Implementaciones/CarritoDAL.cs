@@ -31,7 +31,6 @@ namespace DAL
         {
             return new Carrito(row);
         }
-
         public override void Agregar(Carrito pCarrito)
         {
             string query = "INSERT INTO carrito (CodigoCarrito, ClienteDNI) VALUES (@CodigoCarrito, @ClienteDNI)";
@@ -42,7 +41,6 @@ namespace DAL
         };
             dao.ExecuteNonQuery(query, parameters);
         }
-
         public override void Modificar(Carrito pCarrito)
         {
             string query = "UPDATE carrito SET ClienteDNI = @ClienteDNI WHERE CodigoCarrito = @CodigoCarrito";
@@ -53,7 +51,6 @@ namespace DAL
         };
             dao.ExecuteNonQuery(query, parameters);
         }
-
         public override void Borrar(Carrito pCarrito)
         {
             string query = "DELETE FROM carrito WHERE Codigo = @CodigoCarrito";
@@ -63,9 +60,6 @@ namespace DAL
         };
             dao.ExecuteNonQuery(query, parameters);
         }
-
-        
-
         public void AgregarProductoCarrito(ProductoSeleccionado pProducto, string pIdCarrito)
         {
             string query = "INSERT INTO ProductoCarrito (CodigoProducto, CodigoCarrito, Cantidad) VALUES (@CodProducto, @CodCarrito, @Cantidad)";
@@ -77,7 +71,6 @@ namespace DAL
         };
             dao.ExecuteNonQuery(query, parameters);
         }
-
         public void BorrarProductoCarrito(string pIdProducto)
         {
             string query = "DELETE FROM ProductoCarrito WHERE CodigoProducto = @CodProducto";
@@ -87,7 +80,6 @@ namespace DAL
         };
             dao.ExecuteNonQuery(query, parameters);
         }
-
         public void ModificarProductoCarrito(ProductoSeleccionado pProducto, string pIdCarrito)
         {
             string query = @"UPDATE ProductoCarrito 
@@ -103,7 +95,6 @@ namespace DAL
         }
 
         // --- MÉTODOS DE BÚSQUEDA PERSONALIZADOS ---
-
         public Carrito ObtenerCarrito(string pDNI)
         {
             string query = "SELECT * FROM carrito WHERE ClienteDNI = @DNI";
@@ -123,7 +114,6 @@ namespace DAL
                 return null;
             }
         }
-
         public bool BuscarDNI(string pDNI)
         {
             string query = "SELECT 1 FROM carrito WHERE ClienteDNI = @DNI";

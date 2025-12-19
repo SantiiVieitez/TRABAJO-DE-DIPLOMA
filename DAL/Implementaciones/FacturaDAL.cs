@@ -160,35 +160,6 @@ namespace DAL
                 }
             }
         }
-
-        public List<Factura> ObtenerTodas()
-        {
-            List<Factura> lista = new List<Factura>();
-            string query = "SELECT ID, MetodoDePago, DNI_Cliente, Fecha, DVH FROM Factura";
-
-            DataSet ds = dao.ExecuteDataSet(query);
-            DataTable tabla = ds.Tables[0];
-
-            foreach (DataRow fila in tabla.Rows)
-            {
-                Factura f = new Factura();
-
-                f.ID = Convert.ToInt32(fila["ID"]);
-                f.MetodoDePago = fila["MetodoDePago"].ToString();
-                f.DNI_Cliente = fila["DNI_Cliente"].ToString();
-                f.Fecha = Convert.ToDateTime(fila["Fecha"]);
-
-                if (fila["DVH"] != DBNull.Value)
-                    f.DVH = fila["DVH"].ToString();
-                else
-                    f.DVH = null;
-
-                lista.Add(f);
-            }
-
-            return lista;
-        }
-
         public void ActualizarDVH(int id, string hash)
         {
             try

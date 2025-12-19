@@ -206,6 +206,10 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE.RFN_2
             {
                 throw new Exception("Por favor complete todos los campos obligatorios.");
             }
+            if(textBox5.TextLength != 22)
+            {
+                throw new Exception("El CBU debe tener 22 Digitos");
+            }
             if (!radioButton1.Checked && !radioButton2.Checked)
             {
                 throw new Exception("Por favor seleccione una opción.");

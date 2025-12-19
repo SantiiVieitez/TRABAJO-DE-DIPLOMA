@@ -106,7 +106,20 @@ namespace DAL
             };
             dao.ExecuteNonQuery(query, parameters);
         }
+        public void DesvincularPermisoDePerfil(string nombrePerfil, string nombrePermiso)
+        {
+            string query = @"DELETE FROM PermisoPermisos
+                     WHERE NombreBase = @Perfil
+                       AND NombreSimple_Compuesto = @Permiso";
 
+            var parameters = new Dictionary<string, object>
+    {
+        { "@Perfil", nombrePerfil },
+        { "@Permiso", nombrePermiso }
+    };
+
+            dao.ExecuteNonQuery(query, parameters);
+        }
         public List<Permiso> RetornarPermisos()
         {
             return ObtenerTodos();

@@ -35,8 +35,8 @@ namespace DAL.RFN_2
         public override void Agregar(FacturaP p)
         {
             string query = @"INSERT INTO FacturaP 
-                     (ID, Fecha, MetodoDePago, ID_OrdenDeCompra, NombreComprador, NombreVendedor)
-                     VALUES (@ID, @Fecha, @MetodoDePago, @ID_OC, @Comprador, @Vendedor)";
+                     (ID, Fecha, MetodoDePago, ID_OrdenDeCompra, NombreComprador, NombreVendedor, Recibido)
+                     VALUES (@ID, @Fecha, @MetodoDePago, @ID_OC, @Comprador, @Vendedor, @Recibido)";
 
             var parameters = new Dictionary<string, object>
         {
@@ -45,7 +45,8 @@ namespace DAL.RFN_2
             { "@MetodoDePago", p.MetodoDePago },
             { "@ID_OC", p.ID_OrdenDeCompra },
             { "@Comprador", p.NombreComprador },
-            { "@Vendedor", p.NombreVendedor }
+            { "@Vendedor", p.NombreVendedor },
+            { "@Recibido", p.Recibido}
         };
 
             dao.ExecuteNonQuery(query, parameters);

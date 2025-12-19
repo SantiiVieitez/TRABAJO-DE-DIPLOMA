@@ -152,7 +152,7 @@ namespace DAL
             return lista;
         }
 
-        public List<Cotizacion> RetornarCotizacionesProveedor(string cuit)
+        public List<Cotizacion> RetornarCotizaciones(string cuit)
         {
             List<Cotizacion> lista = new List<Cotizacion>();
             string query = @"SELECT * FROM SolicitudCotizacion WHERE CUIT = @CUIT";

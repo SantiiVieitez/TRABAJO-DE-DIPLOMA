@@ -30,9 +30,9 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
             userBLL = new UserBLL();
             bitacoraBLL = new BitacoraEventosBLL();
             facturaBLL.VerificarDVH();
-            textBox1.Text = "santiv";
-            textBox2.Text = "12345";
-            button1_Click(null, null);
+            //textBox1.Text = "santiv";
+            //textBox2.Text = "12345";
+            //button1_Click(null, null);
         }
         public void ActualizarIdioma(Idioma Idioma)
         {
@@ -56,7 +56,7 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
                 userBLL.IniciarSesion(textBox1.Text,Encriptador.GetSHA256(textBox2.Text));
                 if (SessionManager.GetInstance.Usuario != null)
                 {
-                    //MessageBox.Show("Sesion iniciada con exito");
+                    MessageBox.Show("Sesion iniciada con exito");
                     SessionManager.GetInstance.Usuario.Perfil = new PermisoBLL().RetornarPerfilUsuario(SessionManager.GetInstance.Usuario.Rol);
                     this.Hide();
                     FormMenu fm = new FormMenu();

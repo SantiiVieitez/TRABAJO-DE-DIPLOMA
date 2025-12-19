@@ -8,6 +8,7 @@ using QuestPDF.Infrastructure;
 using SERVICIOS;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace BLL
 {
@@ -165,6 +166,12 @@ namespace BLL
 
         private void EjecutarQuestPDF(Factura pFactura, string ruta)
         {
+
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string pathImgExe = Path.Combine(basePath, "Imagenes", "Logo250.jpg");
+            string pathImgDev = Path.GetFullPath(Path.Combine(basePath, @"..\..\Imagenes", "Logo250.jpg"));
+            string rutaLogo = File.Exists(pathImgExe) ? pathImgExe : pathImgDev;
+
             QuestPDF.Settings.License = LicenseType.Community;
             Document.Create(container =>
             {
@@ -175,7 +182,7 @@ namespace BLL
 
                     page.Header().Row(row =>
                     {
-                        row.ConstantItem(100).Image("Imagenes\\Logo250.jpg");
+                        row.ConstantItem(100).Image(rutaLogo);
                         row.RelativeItem().AlignRight().Text(t => t.Span("RepuestoMaster").FontSize(20).SemiBold().FontColor(Colors.Blue.Medium));
                     });
 

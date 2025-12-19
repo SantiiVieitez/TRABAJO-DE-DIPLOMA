@@ -286,9 +286,15 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
 
         private void btnBorrarPerfil_Click(object sender, EventArgs e)
         {
-            Familia aux = dataGridView3.SelectedRows[0].DataBoundItem as Familia;
-            aux.Permisos = permisoBLL.RetornarPermisosFamilia(aux.Nombre);
-            permisoBLL.BorrarFamilia(aux);
+            if (dataGridView3.SelectedRows.Count == 0) return;
+
+            var permiso = dataGridView3.SelectedRows[0].DataBoundItem as Permiso;
+            if (permiso == null) return;
+            string perfil = comboBox2.Text; 
+            if (string.IsNullOrWhiteSpace(perfil)) return;
+
+            permisoBLL.DesvincularPermisoDePerfil(perfil, permiso.Nombre);
+
             Mostrar();
             MostrarPermisosFamilia();
             MostrarPermisosPerfil();

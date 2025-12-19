@@ -42,7 +42,7 @@ namespace BLL
         }
         public List<Cotizacion> RetornarCotizacionesProveedor(string cuit)
         {
-            return dao.RetornarCotizacionesProveedor(cuit);
+            return dao.RetornarCotizaciones(cuit);
         }
     }
 }

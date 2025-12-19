@@ -50,23 +50,21 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
         }
         public bool ValidarPermisos(Familia perfil, List<string> permisosAValidar)
         {
-            if (perfil == null || perfil.Permisos == null || permisosAValidar == null)
-            {
-                return false;
-            }
+            if (perfil == null || permisosAValidar == null) return false;
+            if (perfil.Permisos == null) perfil.Permisos = new List<Permiso>();
 
-            var permisosExistentes = new HashSet<string>();
+            var permisosExistentes = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            // ✅ Agrego el nombre del perfil (familia raíz)
+            if (!string.IsNullOrWhiteSpace(perfil.Nombre))
+                permisosExistentes.Add(perfil.Nombre);
+
             AgregarPermisosRecursivos(perfil, permisosExistentes);
 
             foreach (var permiso in permisosAValidar)
-            {
-                if (!permisosExistentes.Contains(permiso))
-                {
-                    return false; 
-                }
-            }
+                if (!permisosExistentes.Contains(permiso)) return false;
 
-            return true; 
+            return true;
         }
         private void AgregarPermisosRecursivos(Familia familia, HashSet<string> permisosExistentes)
         {
@@ -81,10 +79,21 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
         }
         private void gestionUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            List<string> permisosAValidar = new List<string> { "AgregarUsuario", "BorrarUsuario", "ModificarUsuario" };
+            bool flag = ValidarPermisos(SessionManager.GetInstance.Usuario.Perfil, permisosAValidar);
+            if(flag == true)
+            {
             FormGestionUsuario formGestionUsuario = new FormGestionUsuario();
             this.Hide();
             formGestionUsuario.ShowDialog();
-            this.Show();
+                this.Show();    
+            }
+            else
+            {
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
+            }
+
         }
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -309,58 +318,135 @@ namespace PROYECTO_INGENIERIA_DE_SOFTWARE
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormRegistrarProveedor form = new FormRegistrarProveedor();
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
+            List<string> permisosAValidar = new List<string> { "GestionProveedores" };
+            bool flag = ValidarPermisos(SessionManager.GetInstance.Usuario.Perfil, permisosAValidar);
+            if (flag == true)
+            {
+                FormRegistrarProveedor form = new FormRegistrarProveedor();
+                this.Hide();
+                form.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
+            }
+            
         }
 
         private void solicitudDeCotizacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormSolicitudCotizacion form = new FormSolicitudCotizacion();
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
+            List<string> permisosAValidar = new List<string> { "GestionSolicitudCotizacion", "GestionProveedores" };
+            bool flag = ValidarPermisos(SessionManager.GetInstance.Usuario.Perfil, permisosAValidar);
+            if (flag == true)
+            {
+                FormSolicitudCotizacion form = new FormSolicitudCotizacion();
+                this.Hide();
+                form.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
+            }
+            
         }
 
         private void ordenesDeCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormOrdenesDeCompra form = new FormOrdenesDeCompra();
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
+            List<string> permisosAValidar = new List<string> { "GestionOrdenesDeCompra" ,"GestionProveedores" };
+            bool flag = ValidarPermisos(SessionManager.GetInstance.Usuario.Perfil, permisosAValidar);
+            if (flag == true)
+            {
+                FormOrdenesDeCompra form = new FormOrdenesDeCompra();
+                this.Hide();
+                form.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
+            }
+            
         }
 
         private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAlmacen form = new FormAlmacen();
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
+            List<string> permisosAValidar = new List<string> { "GestionAlmacen" };
+            bool flag = ValidarPermisos(SessionManager.GetInstance.Usuario.Perfil, permisosAValidar);
+            if (flag == true)
+            {
+                FormAlmacen form = new FormAlmacen();
+                this.Hide();
+                form.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
+            }
+            
         }
 
         private void reporte1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormReporte1 form = new FormReporte1();
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
+            List<string> permisosAValidar = new List<string> { "Ventas" };
+            bool flag = ValidarPermisos(SessionManager.GetInstance.Usuario.Perfil, permisosAValidar);
+            if (flag == true)
+            {
+                FormReporte1 form = new FormReporte1();
+                this.Hide();
+                form.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
+            }
+            
         }
 
         private void reporte2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormReporte2 form = new FormReporte2();
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
+            List<string> permisosAValidar = new List<string> { "Compras" };
+            bool flag = ValidarPermisos(SessionManager.GetInstance.Usuario.Perfil, permisosAValidar);
+            if (flag == true)
+            {
+                FormReporte2 form = new FormReporte2();
+                this.Hide();
+                form.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
+            }
+            
         }
 
         private void productosCToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormBitacoraCambio form = new FormBitacoraCambio();
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
+            List<string> permisosAValidar = new List<string> { "BitacoraDeCambios" };
+            bool flag = ValidarPermisos(SessionManager.GetInstance.Usuario.Perfil, permisosAValidar);
+            if (flag == true)
+            {
+                FormBitacoraCambio form = new FormBitacoraCambio();
+                this.Hide();
+                form.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                string texto = new IdiomaBLL().Traducir(idioma, "FaltanPermisos");
+                MessageBox.Show(texto);
+            }
+            
         }
 
         private void FormMenu_FormClosing(object sender, FormClosingEventArgs e)

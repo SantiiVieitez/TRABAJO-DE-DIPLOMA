@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace BLL
 {
@@ -22,6 +23,10 @@ namespace BLL
         public void BorrarFamilia(Familia pFamilia)
         {
             dao.Borrar(pFamilia);
+        }
+        public void DesvincularPermisoDePerfil(string NombrePerfil, string NombrePermiso)
+        {
+            dao.DesvincularPermisoDePerfil(NombrePerfil, NombrePermiso);
         }
         public void AgregarPermisoFamilia(Familia familia, Permiso pPermiso)
         {
